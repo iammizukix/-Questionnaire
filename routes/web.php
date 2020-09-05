@@ -36,4 +36,6 @@ Route::post('system/password/email', 'Auth\ForgotPasswordController@sendResetLin
 Route::get('system/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('system/password/reset', 'Auth\ResetPasswordController@reset');
 
-
+if (env('APP_ENV') === 'production') {
+     URL::forceScheme('https');
+     }
